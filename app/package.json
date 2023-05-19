@@ -1,0 +1,25 @@
+{
+  "name": "ua-parser",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.6",
+    "@monaco-editor/react": "^4.4.5",
+    "@types/ua-parser-js": "^0.7.36",
+    "collections": "^5.1.13",
+    "deepmerge": "^4.3.0",
+    "next": "^12.1.0",
+    "node-uap": "^0.0.3",
+    "ua-parser-js": "^1.0.33",
+    "use-force-update": "^1.0.7"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4"
+  }
+}
