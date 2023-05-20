@@ -87,9 +87,9 @@ function deviceTypeAndName(userAgent) {
         } else {
             deviceName = uaParserData.os.name + " Phone"
         }
-    } else if (uaParserData.device.type == "wearable") {
-        deviceType = "Wearable"
-        deviceName = uaParserData.device.vendor
+    } else if (uaParserData.device.type == "wearable" || uaParserData.device.type == "console") {
+        deviceType = "Other"
+        deviceName = uaParserData.device.vendor + " " + uaParserData.device.model
     } else if (!uaParserData.device.type && uaParserData.cpu.architecture) {
         deviceType = "Computer"
         deviceName = (uapData.os.family == "Ubuntu" ? "Linux" : uapData.os.family) + " Computer"
@@ -98,11 +98,11 @@ function deviceTypeAndName(userAgent) {
             if (userAgent.indexOf('TV Store') > -1) {
                 deviceType = "Smart TV"
                 deviceName = uapData.os.family + " TV"
-            } else if(uapData.device.family == "Other" && uapData.os.family != "Other") {
+            } else if (uapData.device.family == "Other" && uapData.os.family != "Other") {
                 deviceType = "Computer"
                 deviceName = uapData.os.family + " Computer"
             } else if (uapData.os.family == "Other") {
-                if(userAgent.indexOf("AirPlay")>-1) {
+                if (userAgent.indexOf("AirPlay") > -1) {
                     deviceType = "Smart TV"
                     deviceName = "Apple AirPlay"
                 } else {
@@ -110,6 +110,7 @@ function deviceTypeAndName(userAgent) {
                     deviceName = uapData.device.family
                 }
             } else {
+                deviceType = "Other"
                 deviceName = unescape(uapData.ua.family)
             }
         } else if (uapData.device.model == "iOS-Device") {
@@ -150,7 +151,7 @@ function deviceTypeAndName(userAgent) {
             deviceName = "Philips TV"
         } else if (uapData.device.model == "Smartphone") {
             deviceType = "Mobile Phone"
-            deviceName = uaParserData.os.name + " Phone"
+            deviceName = uapData.os.family + " Phone"
         } else if (userAgent.indexOf("AndroidTV") > -1) {
             deviceType = "Smart TV"
             if (uapData.device.model == "SMART_TV" || uaParserData.device.vendor == "Generic") {
@@ -160,7 +161,7 @@ function deviceTypeAndName(userAgent) {
             }
         } else if (userAgent.indexOf("AndroidMobile") > -1) {
             deviceType = "Mobile Phone"
-            deviceName = uaParserData.os.name + " Phone"
+            deviceName = uapData.os.family + " Phone"
         } else if (userAgent.indexOf("CloudWalker") > -1) {
             deviceType = "Smart TV"
             deviceName = "Cloud TV"
@@ -170,7 +171,32 @@ function deviceTypeAndName(userAgent) {
         } else if (uapData.device.family && uapData.device.family.startsWith("CloudTV")) {
             deviceType = "Smart TV"
             deviceName = "Cloud TV"
+        } else if (uapData.device.model == "Desktop") {
+            deviceType = "Computer"
+            deviceName = unescape(uapData.os.family)
+        } else if (uapData.device.family && uapData.device.family.indexOf("AOSP TV") > -1) {
+            deviceType = "Smart TV"
+            deviceName = "Android TV"
+        } else if (uapData.device.family && uapData.device.family.indexOf("XStream_Smart_Box") > -1) {
+            deviceType = "Smart TV"
+            deviceName = "Airtel XStream Box"
+        } else if (userAgent.indexOf("FetchTV") > -1) {
+            deviceType = "IP TV"
+            deviceName = "Fetch TV"
+        } else if (uapData.device.brand == "OnePlus") {
+            deviceType = "Mobile Phone"
+            deviceName = "OnePlus Phone"
+        } else if (uapData.os.family == "Android" && uapData.device.brand == "Generic_Android") {
+            deviceType = "Mobile Phone"
+            deviceName = "Android Phone"
+        } else if (uapData.os.family == "Android" && uapData.device.brand == "Google") {
+            deviceType = "Mobile Phone"
+            deviceName = uapData.device.brand + " Phone"
+        } else if (uapData.os.family == "Other" && uapData.device.model == "Feature Phone") {
+            deviceType = "Mobile Phone"
+            deviceName = "Feature Phone"
         } else if ((uaParserData.browser.name || unescape(uapData.ua.family)) != "Other") {
+            deviceType = "Other"
             deviceName = uaParserData.browser.name || unescape(uapData.ua.family)
         }
     }
