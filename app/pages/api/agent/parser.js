@@ -4,7 +4,7 @@ const uap = require('node-uap');
 const merge = require('deepmerge')
 const Set = require("collections/set");
 
-function deviceTypeAndName(userAgent) {
+function deviceTypeAndName(userAgent, partner) {
     if (userAgent == '-') return {
         "deviceType": "Unknown",
         "deviceName": "Unknown"
@@ -12,9 +12,9 @@ function deviceTypeAndName(userAgent) {
     let uapData = uap.parse(unescape(userAgent))
     let uaParserData = parser(unescape(userAgent))
     let deviceName = 'Unknown', deviceType = 'Unknown'
-    console.log(userAgent)
-    console.log("UAPData", uapData)
-    console.log("UAParserData", uaParserData)
+    // console.log(userAgent)
+    // console.log("UAPData", uapData)
+    // console.log("UAParserData", uaParserData)
     if (uaParserData.device.type == "smarttv") {
         deviceType = "Smart TV"
         if (uaParserData.device.vendor == "Apple") {
@@ -149,6 +149,9 @@ function deviceTypeAndName(userAgent) {
         } else if (uapData.device.model == "TPM191E") {
             deviceType = "Smart TV"
             deviceName = "Philips TV"
+        } else if (userAgent.indexOf('ExoPlayerLib') > -1 && userAgent.indexOf('VideoPlayerGlue') > -1) {
+            deviceType = "Smart TV"
+            deviceName = partner == 'CW' ? "Cloud TV":"Android TV"
         } else if (uapData.device.model == "Smartphone") {
             deviceType = "Mobile Phone"
             deviceName = uapData.os.family + " Phone"
