@@ -12,9 +12,9 @@ function deviceTypeAndName(userAgent, partner) {
     let uapData = uap.parse(unescape(userAgent))
     let uaParserData = parser(unescape(userAgent))
     let deviceName = 'Unknown', deviceType = 'Unknown'
-    console.log(userAgent)
-    console.log("UAPData", uapData)
-    console.log("UAParserData", uaParserData)
+    // console.log(userAgent)
+    // console.log("UAPData", uapData)
+    // console.log("UAParserData", uaParserData)
     if (uaParserData.device.type == "smarttv") {
         deviceType = "Smart TV"
         if (uaParserData.device.vendor == "Apple") {
@@ -95,8 +95,8 @@ function deviceTypeAndName(userAgent, partner) {
         deviceName = (uapData.os.family == "Ubuntu" ? "Linux" : uapData.os.family) + " Computer"
     } else {
         if(userAgent.indexOf("Fire OS") == 0) {
-            deviceType = "Tablet"
-            deviceName = "Amazon Fire Tablet"
+            deviceType = "Smart TV"
+            deviceName = "Amazon Fire TV"
         } else if (!uapData.device.model) {
             if (userAgent.indexOf('TV Store') > -1) {
                 deviceType = "Smart TV"
