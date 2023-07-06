@@ -193,8 +193,13 @@ function deviceTypeAndName(userAgent, partner) {
             deviceType = "Mobile Phone"
             deviceName = "OnePlus Phone"
         } else if (uapData.os.family == "Android" && uapData.device.brand == "Generic_Android") {
-            deviceType = "Mobile Phone"
-            deviceName = "Android Phone"
+            if(uapData.device.model.indexOf("TV") > -1) {
+                deviceType = "Smart TV"
+                deviceName = uapData.device.model
+            } else {
+                deviceType = "Mobile Phone"
+                deviceName = "Android Phone"
+            }
         } else if (uapData.os.family == "Android" && uapData.device.brand == "Google") {
             deviceType = "Mobile Phone"
             deviceName = uapData.device.brand + " Phone"
