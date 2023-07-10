@@ -55,6 +55,15 @@ function deviceTypeAndName(userAgent, partner) {
         } else if (uapData.device.model == "PANASONIC TV") {
             deviceType = "Smart TV"
             deviceName = "PANASONIC TV"
+        } else if (uapData.device.model && uapData.device.model.indexOf("Toshiba TV")>-1) {
+            deviceType = "Smart TV"
+            deviceName = uapData.device.model
+        } else if (uapData.device.model == "BeyondTV2" || uapData.device.model == "BeyondTV") {
+            deviceType = "Smart TV"
+            deviceName = "Beyond TV"
+        } else if (uapData.device.model == "UnionTV") {
+            deviceType = "Smart TV"
+            deviceName = "UnionTV"
         } else if (uaParserData.device.vendor) {
             deviceName = uaParserData.device.vendor + " Phone"
         } else if (uapData.device.brand == "Generic_Android" || uapData.device.brand == "Generic") {
@@ -70,7 +79,10 @@ function deviceTypeAndName(userAgent, partner) {
         }
     } else if (uaParserData.device.type == "tablet") {
         deviceType = "Tablet"
-        if (uaParserData.device.vendor == "Apple") {
+        if (uapData.device.model == "SHIELD Android TV") {
+            deviceType = "Smart TV"
+            deviceName = "SHIELD Android TV"
+        } else if (uaParserData.device.vendor == "Apple") {
             deviceName = "Apple iPad"
         } else if (uaParserData.device.vendor == "Amazon") {
             if (uaParserData.device.model == "KFMAWI") {
@@ -152,6 +164,27 @@ function deviceTypeAndName(userAgent, partner) {
         } else if (uapData.device.model == "TPM191E") {
             deviceType = "Smart TV"
             deviceName = "Philips TV"
+        } else if (uapData.device.model == "X96Q") {
+            deviceType = "Smart TV"
+            deviceName = "X96Q TV Box"
+        } else if (uapData.device.model == "MBIF-H533") {
+            deviceType = "Smart TV"
+            deviceName = "MyBox TV Box"
+        } else if (uapData.device.model == "DVN2KA01") {
+            deviceType = "Smart TV"
+            deviceName = "Nokia TV Box"
+        } else if (uapData.device.model == "DVM4KA01") {
+            deviceType = "Smart TV"
+            deviceName = "Motorola TV Box"
+        } else if (uapData.device.model && uapData.device.model.indexOf("mt9255") > -1) {
+            deviceType = "Smart TV"
+            deviceName = "MediaTek Smart TV"
+        } else if (uapData.device.model == "PATH_UHDXANDROID" || uapData.device.model == "SW-22AE NF" || uapData.device.model == "HP2707" || uapData.device.model == "atvX") {
+            deviceType = "Smart TV"
+            deviceName = "Android TV"
+        } else if (uapData.device.model == "BeyondTV2" || uapData.device.model == "BeyondTV") {
+            deviceType = "Smart TV"
+            deviceName = "Beyond TV"
         } else if (userAgent.indexOf('ExoPlayerLib') > -1 && userAgent.indexOf('VideoPlayerGlue') > -1) {
             deviceType = "Smart TV"
             deviceName = partner == 'CW' ? "Cloud TV":"Android TV"
@@ -183,9 +216,12 @@ function deviceTypeAndName(userAgent, partner) {
         } else if (uapData.device.family && uapData.device.family.indexOf("AOSP TV") > -1) {
             deviceType = "Smart TV"
             deviceName = "Android TV"
-        } else if (uapData.device.family && uapData.device.family.indexOf("XStream_Smart_Box") > -1) {
+        } else if (uapData.device.family && (uapData.device.family.indexOf("XStream_Smart_Box") > -1 || uapData.device.family.indexOf("XStream-Smart-Box") > -1)) {
             deviceType = "Smart TV"
             deviceName = "Airtel XStream Box"
+        } else if (uapData.device.family && uapData.device.family.indexOf("Tata Sky Binge") > -1) {
+            deviceType = "Smart TV"
+            deviceName = uapData.device.model
         } else if (userAgent.indexOf("FetchTV") > -1) {
             deviceType = "IP TV"
             deviceName = "Fetch TV"
