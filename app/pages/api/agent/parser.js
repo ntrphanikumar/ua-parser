@@ -8,7 +8,11 @@ function deviceTypeAndName(userAgent, partner) {
     if (userAgent == '-') return {
         "deviceType": "Unknown",
         "deviceName": "Unknown"
-    }
+    } 
+    if(userAgent == "player_sdk") return {
+        "deviceType": "Mobile Phone",
+        "deviceName": "Android Phone"
+    } 
     let uapData = uap.parse(unescape(userAgent))
     let uaParserData = parser(unescape(userAgent))
     let deviceName = 'Unknown', deviceType = 'Unknown'
