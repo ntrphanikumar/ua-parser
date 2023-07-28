@@ -16,9 +16,9 @@ function deviceTypeAndName(userAgent, partner) {
     let uapData = uap.parse(unescape(userAgent))
     let uaParserData = parser(unescape(userAgent))
     let deviceName = 'Unknown', deviceType = 'Unknown'
-    console.log(userAgent)
-    console.log("UAPData", uapData)
-    console.log("UAParserData", uaParserData)
+    // console.log(userAgent)
+    // console.log("UAPData", uapData)
+    // console.log("UAParserData", uaParserData)
     if (uaParserData.device.type == "smarttv") {
         deviceType = "Smart TV"
         if (uaParserData.device.vendor == "Apple") {
@@ -110,7 +110,7 @@ function deviceTypeAndName(userAgent, partner) {
         deviceType = "Computer"
         deviceName = (uapData.os.family == "Ubuntu" ? "Linux" : uapData.os.family) + " Computer"
     } else {
-        if(userAgent.indexOf("com.mitv.videoplayer")) {
+        if(userAgent.indexOf("com.mitv.videoplayer") > -1) {
             deviceType = "Smart TV"
             deviceName = "Mi TV"
         } else if(userAgent.indexOf("Fire OS") == 0) {
