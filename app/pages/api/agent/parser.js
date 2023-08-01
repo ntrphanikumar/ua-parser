@@ -94,7 +94,7 @@ function deviceTypeAndName(userAgent, partner) {
     } else if (userAgent.indexOf('ExoPlayerLib') > -1 && userAgent.indexOf('VideoPlayerGlue') > -1) {
         deviceType = "Smart TV"
         deviceName = (partner == 'CW' || partner == 'cloudtv') ? "Cloud TV":"Android TV"
-    } else if (userAgent.indexOf('ExoPlayerLib') > -1 && partner == 'oneplustv') {
+    } else if (userAgent.indexOf('ExoPlayerLib') > -1 && partner == 'oneplus') {
         deviceType = "Smart TV"
         deviceName = "OnePlus TV"
     } else if (userAgent.indexOf("AndroidTV") > -1) {
