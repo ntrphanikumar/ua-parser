@@ -255,8 +255,14 @@ function deviceTypeAndName(userAgent, partner) {
             deviceName = uaParserData.browser.name || unescape(uapData.ua.family)
         }
     }
-    if(deviceName.toLowerCase().replace("-", " ").replace("_", " ").startsWith("lloyd")) {
-        deviceName = "Lloyd TV"
+    if(deviceType === 'Smart TV') {
+        if(deviceName.toLowerCase().replace("-", " ").replace("_", " ").startsWith("lloyd")) {
+            deviceName = "Lloyd TV"
+        } else if (deviceName.toUpperCase().startsWith("AQUOS")) {
+            deviceName = "Sharp AQUOS"
+        } else if (deviceName.toUpperCase().startsWith("PRISMPLUS")) {
+            deviceName = "PrismPlus TV"
+        }
     }
     return {
         "agent": userAgent,
