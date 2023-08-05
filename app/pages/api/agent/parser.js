@@ -255,6 +255,9 @@ function deviceTypeAndName(userAgent, partner) {
             deviceName = uaParserData.browser.name || unescape(uapData.ua.family)
         }
     }
+    if(deviceName.toLowerCase().replace("-", " ").replace("_", " ").startsWith("lloyd")) {
+        deviceName = "Lloyd TV"
+    }
     return {
         "agent": userAgent,
         "deviceType": deviceType,
