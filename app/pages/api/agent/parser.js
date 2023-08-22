@@ -193,6 +193,9 @@ function deviceTypeAndName(userAgent, partner) {
                     deviceType = "Other"
                     deviceName = uapData.device.family
                 }
+            } else if (uapData.os.family == "Android"){
+                deviceType = "Mobile Phone"
+                deviceName = "Android Phone"
             } else {
                 deviceType = "Other"
                 deviceName = unescape(uapData.ua.family)
@@ -250,6 +253,9 @@ function deviceTypeAndName(userAgent, partner) {
         } else if (uapData.os.family == "Other" && uapData.device.model == "Feature Phone") {
             deviceType = "Mobile Phone"
             deviceName = "Feature Phone"
+        } else if (uapData.os.family == "Android"){
+            deviceType = "Mobile Phone"
+            deviceName = uapData.device.brand +" Phone"
         } else if ((uaParserData.browser.name || unescape(uapData.ua.family)) != "Other") {
             deviceType = "Other"
             deviceName = uaParserData.browser.name || unescape(uapData.ua.family)
