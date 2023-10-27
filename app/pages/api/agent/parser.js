@@ -40,46 +40,46 @@ function deviceTypeAndName(userAgent, partner) {
     } else if(userAgent.indexOf("Fire OS") == 0) {
         deviceType = "Smart TV"
         deviceName = "Amazon Fire TV"
-    } else if (uapData.device.model.startsWith("AFT")) {
+    } else if (uapData.device.model && uapData.device.model.startsWith("AFT")) {
         deviceType = "Smart TV"
         deviceName = "Amazon Fire TV"
-    } else if (uapData.device.model.startsWith("MIBOX")) {
+    } else if (uapData.device.model && uapData.device.model.startsWith("MIBOX")) {
         deviceType = "Smart TV"
         deviceName = "Mi Box"
-    } else if (uapData.device.model.startsWith("MiTV")) {
+    } else if (uapData.device.model && uapData.device.model.startsWith("MiTV")) {
         deviceType = "Smart TV"
         deviceName = "Mi TV"
-    } else if (uapData.device.model.startsWith("Chromecast")) {
+    } else if (uapData.device.model && uapData.device.model.startsWith("Chromecast")) {
         deviceType = "Smart TV"
         deviceName = "Chromecast"
-    } else if (uapData.device.model.startsWith("SWTV")) {
+    } else if (uapData.device.model && uapData.device.model.startsWith("SWTV")) {
         deviceType = "Smart TV"
         deviceName = "Skyworth TV"
-    } else if (uapData.device.model.startsWith("Y Series") || uapData.device.model == "Oneplus_Dosa_IN") {
+    } else if (uapData.device.model && (uapData.device.model.startsWith("Y Series") || uapData.device.model == "Oneplus_Dosa_IN")) {
         deviceType = "Smart TV"
         deviceName = "OnePlus TV"
-    } else if (uapData.device.model == "haierATVnippori") {
+    } else if (uapData.device.model && uapData.device.model == "haierATVnippori") {
         deviceType = "Smart TV"
         deviceName = "Haier TV"
-    } else if (uapData.device.model == "PATH_7XPRO") {
+    } else if (uapData.device.model && uapData.device.model == "PATH_7XPRO") {
         deviceType = "Smart TV"
         deviceName = "Kodak TV"
-    } else if (uapData.device.model == "UnionTV") {
+    } else if (uapData.device.model && uapData.device.model == "UnionTV") {
         deviceType = "Smart TV"
         deviceName = "UnionTV"
-    } else if (uapData.device.model == "TPM191E") {
+    } else if (uapData.device.model && uapData.device.model == "TPM191E") {
         deviceType = "Smart TV"
         deviceName = "Philips TV"
-    } else if (uapData.device.model == "X96Q") {
+    } else if (uapData.device.model && uapData.device.model == "X96Q") {
         deviceType = "Smart TV"
         deviceName = "X96Q TV Box"
-    } else if (uapData.device.model == "MBIF-H533") {
+    } else if (uapData.device.model && uapData.device.model == "MBIF-H533") {
         deviceType = "Smart TV"
         deviceName = "MyBox TV Box"
-    } else if (uapData.device.model == "DVN2KA01") {
+    } else if (uapData.device.model && uapData.device.model == "DVN2KA01") {
         deviceType = "Smart TV"
         deviceName = "Nokia TV Box"
-    } else if (uapData.device.model == "DVM4KA01") {
+    } else if (uapData.device.model && uapData.device.model == "DVM4KA01") {
         deviceType = "Smart TV"
         deviceName = "Motorola TV Box"
     } else if (uapData.device.model && uapData.device.model.indexOf("mt9255") > -1) {
