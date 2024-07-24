@@ -12,7 +12,11 @@ function deviceTypeAndName(userAgent, partner) {
     if(userAgent == "player_sdk") return {
         "deviceType": "Mobile Phone",
         "deviceName": "Android Phone"
-    } 
+    }
+    if(userAgent.endsWith('(YuppTV-AndroidMobile)')) return {
+        "deviceType": "Mobile Phone",
+        "deviceName": "YuppTV - Android Phone"
+    }
     let uapData = uap.parse(unescape(userAgent))
     let uaParserData = parser(unescape(userAgent))
     let deviceName = 'Unknown', deviceType = 'Unknown'
